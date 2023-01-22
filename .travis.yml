@@ -1,0 +1,8 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t akv2kor/docker-react -f Dockerfile.dev .
+script:
+  - docker run -e CI=true akv2kor/docker-react npm run test
